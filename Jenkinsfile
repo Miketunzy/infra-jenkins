@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-           git branch: 'main', url: 'https://github.com/ooghenekaro/infra-jenkins.git'
+           git branch: 'main', url: 'https://github.com/Miketunzy/infra-jenkins.git'
   
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage("Deploy to EKS") {
             when {
                expression { params.apply }
-             }
+            }
             steps {
                   sh "aws eks update-kubeconfig --name eks_cluster"
                    sh "kubectl apply -f deployment.yml"
