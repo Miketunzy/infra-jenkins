@@ -31,7 +31,7 @@ pipeline {
            }
         }
         stage("Deploy to EKS") {
-                 when {
+            when {
                  expression { params.apply }
              }
             steps {
