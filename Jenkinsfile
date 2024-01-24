@@ -2,8 +2,8 @@ pipeline {
     agent any
    
     environment {
-        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        AWS_ACCESS_KEY_ID = credentials('tunzy_AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('tunzy_AWS_SECRET_ACCESS_KEY')
         AWS_DEFAULT_REGION = "us-east-1"
     }
     stages {
@@ -31,9 +31,9 @@ pipeline {
            }
         }
         stage("Deploy to EKS") {
-            when {
-               expression { params.apply }
-            }
+           // when {
+             //  expression { params.apply }
+           // }
             steps {
                   sh "aws eks update-kubeconfig --name eks_cluster"
                    sh "kubectl apply -f deployment.yml"
