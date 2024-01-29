@@ -4,7 +4,7 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID = credentials('tunzy_AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('tunzy_AWS_SECRET_ACCESS_KEY')
-        AWS_DEFAULT_REGION = "ca-central-1"
+        AWS_DEFAULT_REGION = "us-east-1"
     }
     stages {
         stage('Checkout') {
